@@ -1,7 +1,6 @@
 package com.example.busticktetbooking;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +12,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); btnViewProducts = (Button) findViewById(R.id.btnViewProducts);
+        setContentView(R.layout.activity_main);
+        btnViewProducts = (Button) findViewById(R.id.btnViewProducts);
         btnNewProduct = (Button) findViewById(R.id.btnCreateProduct);
 
         // view products click event
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Launching create new product activity
-                Intent i = new Intent(getApplicationContext(), NewProductActivity.class);
+                Intent i = new Intent(getApplicationContext(), SigninActivity.class);
                 startActivity(i);
 
             }

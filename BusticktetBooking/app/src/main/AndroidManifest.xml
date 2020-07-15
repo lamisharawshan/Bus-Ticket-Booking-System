@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".SigninActivity"></activity>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity android:name=".RegistrationActivity" />
         <activity android:name=".add_product" />
         <activity android:name=".EditProductActivity" />
         <activity android:name=".list_item" />
