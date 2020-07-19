@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Launching create new product activity
-                Intent i = new Intent(getApplicationContext(), SigninActivity.class);
+                Intent i = new Intent(getApplicationContext(), BusSearchingActivity.class);
                 startActivity(i);
 
             }

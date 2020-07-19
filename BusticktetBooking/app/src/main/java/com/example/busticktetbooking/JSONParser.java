@@ -58,7 +58,6 @@ public class JSONParser {
                 DefaultHttpClient httpClient = new DefaultHttpClient();
                 HttpPost httpPost = new HttpPost(url);
                 httpPost.setEntity(new UrlEncodedFormEntity(params));
-
                 HttpResponse httpResponse = httpClient.execute(httpPost);
                 HttpEntity httpEntity = httpResponse.getEntity();
                 is = httpEntity.getContent();
@@ -81,10 +80,13 @@ public class JSONParser {
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+            Log.i("keysearch","error"+e);
         } catch (ClientProtocolException e) {
             e.printStackTrace();
+            Log.i("keysearch","error"+e);
         } catch (IOException e) {
             e.printStackTrace();
+            Log.i("keysearch","error"+e);
         }
 
         try {

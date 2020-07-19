@@ -1,7 +1,4 @@
 package com.example.busticktetbooking;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
