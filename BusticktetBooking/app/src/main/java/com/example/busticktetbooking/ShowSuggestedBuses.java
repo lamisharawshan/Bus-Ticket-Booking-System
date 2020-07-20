@@ -1,38 +1,92 @@
 package com.example.busticktetbooking;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ProgressDialog;
+import java.util.ArrayList;
+import android.app.ListActivity;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.AutoCompleteTextView;
-
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ShowSuggestedBuses extends AppCompatActivity {
+public class ShowSuggestedBuses extends ListActivity {
     String Source, Destination, Day;
     private static String url_show_buses = "http://192.168.0.104/BusBooking/get_selected_buses.php";
     private ProgressDialog pDialog;
     JSONParser jParser = new JSONParser();
-    AutoCompleteTextView editText, editText2;
+    ArrayList<HashMap<String, String>> busList;
     private static final String TAG_SUCCESS = "success";
+    private static final String TAG_buses = "products";
+    private static final String TAG_busID = "busID";
+    private static final String TAG_NAME = "busname";
+    String id,day,rent, arrivaltime, departuretime, name, destintaion, source;
+    ArrayList<HashMap<String, String>> routeList;
+    JSONArray buses = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_suggested_buses);
+        busList = new ArrayList<HashMap<String, String>>();
         Intent i = getIntent();
         Source = i.getStringExtra("Source");
         Destination = i.getStringExtra("Destination");
         Day = i.getStringExtra("Date");
+        TextView form = (TextView) findViewById(R.id.form);
+        TextView to = (TextView) findViewById(R.id.to);
+        TextView day = (TextView) findViewById(R.id.day);
+        form.setText(Source);
+        to.setText(Destination);
+        day.setText(Day);
         new showSuggestedBus().execute();
+        // Get listview
+        ListView lv = getListView();
+
+        // on seleting single product
+        // launching Edit Product Screen
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                // getting values from selected ListItem
+                String rid = ((TextView) view.findViewById(R.id.pid)).getText().toString();
+                // Starting new intent
+                Intent in = new Intent(getApplicationContext(),
+                        BookingRouteActivity.class);
+                // sending pid to next activity
+                in.putExtra("routedetails_ID", id);
+
+                // starting new activity and expecting some response back
+                startActivityForResult(in, 100);
+            }
+        });
+
+
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // if result code 100
+        if (resultCode == 100) {
+            // if result code 100 is received
+            // means user edited/deleted product
+            // reload this screen again
+            Intent intent = getIntent();
+            finish();
+            startActivity(intent);
+        }
+
     }
 
     class showSuggestedBus extends AsyncTask<String, String, String> {
@@ -43,11 +97,11 @@ public class ShowSuggestedBuses extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-//            pDialog = new ProgressDialog(BusSearchingActivity.this);
-//            pDialog.setMessage("Searching for bus");
-//            pDialog.setIndeterminate(false);
-//            pDialog.setCancelable(true);
-//            pDialog.show();
+            pDialog = new ProgressDialog(ShowSuggestedBuses.this);
+            pDialog.setMessage("Searching for bus");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
         }
 
         /**
@@ -67,34 +121,75 @@ public class ShowSuggestedBuses extends AppCompatActivity {
             JSONObject json = jParser.makeHttpRequest(url_show_buses,
                     "POST", params);
 
-            // check log cat fro response
-            // Log.d("Create Response", json.toString());
-
-            // check for success tag
             try {
                 int success = json.getInt(TAG_SUCCESS);
 
                 if (success == 1) {
                     // successfully created product
+                    buses = json.getJSONArray(TAG_buses);
+                    String[] countries = new String[buses.length()];
+                    // looping through All places
+                    for (int i = 0; i < buses.length(); i++) {
+                        JSONObject c = buses.getJSONObject(i);
+                        // Storing each json item in variable
+                        id = c.getString("id");
+                        day = c.getString("route_date");
+                        rent = c.getString("rent");
+                        arrivaltime = c.getString("arrivaltime");
+                        departuretime = c.getString("departuretime");
+                        name = c.getString("name");
+                        destintaion = c.getString("destintaion");
+                        source = c.getString("source");
 
-                    // closing this screen
-                    finish();
-                } else {
-                    // failed to create product
-                }
+                        HashMap<String, String> map = new HashMap<String, String>();
+
+                        // adding each child node to HashMap key => value
+                        map.put("name", name);
+                        map.put("rent",rent );
+                        map.put("arrivaltime",arrivaltime );
+                        map.put("departuretime",departuretime );
+                        // adding HashList to ArrayList
+                        busList.add(map);
+                        // closing this screen
+                        //finish();
+                    }
+                }else{
+                        // failed to create product
+                    }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
             return null;
-        }
 
-        /**
+        }
+            /**
          * After completing background task Dismiss the progress dialog
          * **/
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once done
             pDialog.dismiss();
+            // updating UI from Background Thread
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    /**
+                     * Updating parsed JSON data into ListView
+                     * */
+                    try {
+                        ListAdapter adapter = new SimpleAdapter(
+                                ShowSuggestedBuses.this, busList, R.layout.activity_list_buses
+                                , new String[]{"rent", "name", "arrivaltime"},
+                                new int[]{R.id.pid, R.id.name, R.id.arrivaltime});
+
+                        // updating listview
+                        setListAdapter(adapter);
+                    }
+                    catch (Exception e ){
+                        Log.i("lamisha","Exception: "+e);
+                    }
+                }
+            });
+
         }
 
     }

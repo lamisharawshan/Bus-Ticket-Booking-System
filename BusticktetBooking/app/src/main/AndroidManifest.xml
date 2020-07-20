@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ShowSuggestedBuses"></activity>
+        <activity android:name=".BookingRouteActivity"></activity>
+        <activity android:name=".ShowSuggestedBuses" />
         <activity android:name=".BusSearchingActivity" />
         <activity android:name=".SigninActivity" />
         <activity
