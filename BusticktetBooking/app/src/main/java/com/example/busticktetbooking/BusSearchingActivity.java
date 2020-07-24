@@ -80,7 +80,6 @@ public class BusSearchingActivity extends AppCompatActivity implements DatePicke
                 year = c.get(Calendar.YEAR);
                 day = c.get(Calendar.DAY_OF_MONTH);
                 month = c.get(Calendar.MONTH);
-
                 DatePickerDialog datePickerDialog = new DatePickerDialog(BusSearchingActivity.this, BusSearchingActivity.this, year, month, day);
                 datePickerDialog.show();
             }

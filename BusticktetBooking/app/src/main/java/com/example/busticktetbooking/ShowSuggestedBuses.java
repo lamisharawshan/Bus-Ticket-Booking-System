@@ -30,7 +30,7 @@ public class ShowSuggestedBuses extends ListActivity {
     private static final String TAG_buses = "products";
     private static final String TAG_busID = "busID";
     private static final String TAG_NAME = "busname";
-    String id,day,rent, arrivaltime, departuretime, name, destintaion, source;
+    String id,day,rent, arrivaltime, departuretime, name, destintaion, source, available_seat;
     ArrayList<HashMap<String, String>> routeList;
     JSONArray buses = null;
     @Override
@@ -60,32 +60,31 @@ public class ShowSuggestedBuses extends ListActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // getting values from selected ListItem
-                String rid = ((TextView) view.findViewById(R.id.pid)).getText().toString();
+                String rent = ((TextView) view.findViewById(R.id.rent)).getText().toString();
+             // String source = ((TextView) view.findViewById(R.id.form)).getText().toString();
+              // String Destination = ((TextView) view.findViewById(R.id.to)).getText().toString();
+              // String Day = ((TextView) view.findViewById(R.id.day)).getText().toString();
+                String routeid = ((TextView) view.findViewById(R.id.route_id)).getText().toString();
+
                 // Starting new intent
                 Intent in = new Intent(getApplicationContext(),
                         BookingRouteActivity.class);
                 // sending pid to next activity
-                in.putExtra("routedetails_ID", id);
-
+                in.putExtra("route_ID", routeid);
+                in.putExtra("source", Source);
+                in.putExtra("Destination", Destination);
+                in.putExtra("arrivaltime", arrivaltime);
+                in.putExtra("departuretime", departuretime);
+                in.putExtra("available_seat", available_seat);
+                in.putExtra("Day", Day);
+                in.putExtra("rent", rent);
+                in.putExtra("name", name);
                 // starting new activity and expecting some response back
-                startActivityForResult(in, 100);
+                //startActivityForResult(in, 100);
+                startActivity(in);
             }
         });
 
-
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // if result code 100
-        if (resultCode == 100) {
-            // if result code 100 is received
-            // means user edited/deleted product
-            // reload this screen again
-            Intent intent = getIntent();
-            finish();
-            startActivity(intent);
-        }
 
     }
 
@@ -140,7 +139,7 @@ public class ShowSuggestedBuses extends ListActivity {
                         name = c.getString("name");
                         destintaion = c.getString("destintaion");
                         source = c.getString("source");
-
+                        available_seat=c.getString("available_seat");
                         HashMap<String, String> map = new HashMap<String, String>();
 
                         // adding each child node to HashMap key => value
@@ -148,6 +147,7 @@ public class ShowSuggestedBuses extends ListActivity {
                         map.put("rent",rent );
                         map.put("arrivaltime",arrivaltime );
                         map.put("departuretime",departuretime );
+                        map.put("id",id );
                         // adding HashList to ArrayList
                         busList.add(map);
                         // closing this screen
@@ -178,8 +178,8 @@ public class ShowSuggestedBuses extends ListActivity {
                     try {
                         ListAdapter adapter = new SimpleAdapter(
                                 ShowSuggestedBuses.this, busList, R.layout.activity_list_buses
-                                , new String[]{"rent", "name", "arrivaltime"},
-                                new int[]{R.id.pid, R.id.name, R.id.arrivaltime});
+                                , new String[]{"rent", "name", "arrivaltime", "available_seat","id"},
+                                new int[]{R.id.rent, R.id.name, R.id.arrival_time, R.id.seat_available,R.id.route_id});
 
                         // updating listview
                         setListAdapter(adapter);

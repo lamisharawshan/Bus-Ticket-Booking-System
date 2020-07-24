@@ -3,6 +3,7 @@ package com.example.busticktetbooking;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -88,8 +89,11 @@ public class SigninActivity extends AppCompatActivity {
             //Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
 
             try {
-                if (result != null) {
+                int success = result.getInt("success");
+
+                if (success == 1) {
                     Toast.makeText(getApplicationContext(),result.getString("message"),Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(SigninActivity.this,MainActivity.class));
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to retrieve any data from server", Toast.LENGTH_LONG).show();
                 }

@@ -11,7 +11,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
 import org.json.JSONArray;
@@ -66,7 +65,7 @@ public void onCreate(Bundle savedInstanceState) {
 public void onItemClick(AdapterView<?> parent, View view,
                         int position, long id) {
         // getting values from selected ListItem
-        String pid = ((TextView) view.findViewById(R.id.pid)).getText().toString();
+        String pid = ((TextView) view.findViewById(R.id.rent)).getText().toString();
         // Starting new intent
         Intent in = new Intent(getApplicationContext(),
         EditProductActivity.class);
@@ -123,9 +122,6 @@ class LoadAllProducts extends AsyncTask<String, String, String> {
 
         // getting JSON string from URL
         JSONObject json = jParser.makeHttpRequest(url_all_products, "POST", params);
-
-        // Check your log cat for JSON reponse
-        Log.d("All Products: ", json.toString());
 
         try {
             // Checking for SUCCESS TAG
@@ -187,7 +183,7 @@ class LoadAllProducts extends AsyncTask<String, String, String> {
                             AllProductsActivity.this, productsList,
                             R.layout.activity_list_item, new String[]{TAG_PID,
                             TAG_NAME},
-                            new int[]{R.id.pid, R.id.name});
+                            new int[]{R.id.rent, R.id.name});
 
 
                     // updating listview

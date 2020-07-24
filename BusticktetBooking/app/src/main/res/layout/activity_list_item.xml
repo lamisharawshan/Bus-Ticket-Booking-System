@@ -31,7 +31,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/pid"
+            android:id="@+id/rent"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:visibility="visible"

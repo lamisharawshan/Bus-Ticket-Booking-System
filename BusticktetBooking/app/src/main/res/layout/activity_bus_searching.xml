@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:completionHint="Select Location"
         android:completionThreshold="0"
-        android:dropDownAnchor="@id/text_view_countries"
+        android:dropDownAnchor="@id/text_view_countries2"
         android:hint="Select Your Destination"
         android:popupBackground="#03a9f4" />
 
@@ -69,10 +69,11 @@
         android:text="" />
 
     <Button
+
         android:id="@+id/search"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Widget.AppCompat.Button.Colored"
         android:text="search for available bus" />
 
 </LinearLayout>
