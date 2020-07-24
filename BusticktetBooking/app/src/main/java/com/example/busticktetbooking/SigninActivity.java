@@ -1,7 +1,5 @@
 package com.example.busticktetbooking;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,11 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class SigninActivity extends AppCompatActivity {
@@ -41,10 +37,28 @@ public class SigninActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // creating new product in background thread
-                new AttemptLogin().execute();
+                email = Email.getText().toString().trim();
+                password = Password.getText().toString().trim();
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(SigninActivity.this, "Enter the correct Email", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(SigninActivity.this, "Enter the correct password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                  else {
+                    new AttemptLogin().execute();
+                }
             }
         });
+        RegisterButton.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View view) {
+                // creating new product in background thread
+                startActivity(new Intent(SigninActivity.this,RegistrationActivity.class));
+            }
+        });
 
     }
 
@@ -53,17 +67,9 @@ public class SigninActivity extends AppCompatActivity {
         @Override
 
         protected void onPreExecute() {
-            email = Email.getText().toString().trim();
-            password = Password.getText().toString().trim();
-            if (TextUtils.isEmpty(email)) {
-                Toast.makeText(SigninActivity.this, "Enter the correct Email", Toast.LENGTH_SHORT).show();
-                return;
-            } else if (TextUtils.isEmpty(password)) {
-                Toast.makeText(SigninActivity.this, "Enter the correct password", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
             super.onPreExecute();
+
+
 
         }
 
@@ -90,12 +96,20 @@ public class SigninActivity extends AppCompatActivity {
 
             try {
                 int success = result.getInt("success");
-
                 if (success == 1) {
+                    User user = new User(
+                            result.getInt("id"),
+                            result.getString("name"),
+                            result.getString("email")
+                    );
+
+                    //storing the user in shared preferences
+                    SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
                     Toast.makeText(getApplicationContext(),result.getString("message"),Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(SigninActivity.this,MainActivity.class));
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(i);;
                 } else {
-                    Toast.makeText(getApplicationContext(), "Unable to retrieve any data from server", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_LONG).show();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

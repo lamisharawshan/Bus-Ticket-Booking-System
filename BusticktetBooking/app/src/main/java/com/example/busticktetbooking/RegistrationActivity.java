@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,21 +46,47 @@ public class RegistrationActivity extends AppCompatActivity {
         password = (EditText)findViewById(R.id.editPassword);
         phone=(EditText)findViewById(R.id.editTextPhone);
         mRegisterbtn = (Button)findViewById(R.id.buttonRegister);
-        mLoginPageBack = (TextView)findViewById(R.id.buttonLogin);
-        mLoginPageBack.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-                // creating new product in background thread
-                new CreateNewUser().execute();
-            }
-        });
         mRegisterbtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 // creating new product in background thread
-                new CreateNewUser().execute();
+                Name = name.getText().toString().trim();
+                Email = email.getText().toString().trim();
+                Password = password.getText().toString().trim();
+                Phone=  phone.getText().toString().trim();
+                if (TextUtils.isEmpty(Name)){
+                    Toast.makeText(RegistrationActivity.this, "Enter Name", Toast.LENGTH_SHORT).show();
+                    name.requestFocus();
+
+                    return;
+                }else if (TextUtils.isEmpty(Email)){
+                    Toast.makeText(RegistrationActivity.this, "Enter Email", Toast.LENGTH_SHORT).show();
+                    email.requestFocus();
+                    return;
+                }else if (TextUtils.isEmpty(Password)){
+                    Toast.makeText(RegistrationActivity.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                    password.requestFocus();
+                    return;
+                }else if (Password.length()<6){
+                    Toast.makeText(RegistrationActivity.this,"Password must be greater then 6 digit",Toast.LENGTH_SHORT).show();
+                    password.requestFocus();
+                    return;
+                }else if (TextUtils.isEmpty(Phone)){
+                    Toast.makeText(RegistrationActivity.this,"Enter Phonenumber",Toast.LENGTH_SHORT).show();
+                    phone.requestFocus();
+                    return;
+                }
+                else if (!Patterns.EMAIL_ADDRESS.matcher(Email).matches() ){
+                    Toast.makeText(RegistrationActivity.this, "Enter a valid email", Toast.LENGTH_SHORT).show();
+                    email.requestFocus();
+                    return;
+
+                }
+                else {
+                    new CreateNewUser().execute();
+                }
             }
         });
     }
@@ -78,27 +105,38 @@ public class RegistrationActivity extends AppCompatActivity {
             pDialog.setCancelable(true);
             pDialog.show();
 
-            Name = name.getText().toString().trim();
-            Email = email.getText().toString().trim();
-            Password = password.getText().toString().trim();
-            Phone=  phone.getText().toString().trim();
-            if (TextUtils.isEmpty(Name)){
-                Toast.makeText(RegistrationActivity.this, "Enter Name", Toast.LENGTH_SHORT).show();
-                return;
-            }else if (TextUtils.isEmpty(Email)){
-                Toast.makeText(RegistrationActivity.this, "Enter Email", Toast.LENGTH_SHORT).show();
-                return;
-            }else if (TextUtils.isEmpty(Password)){
-                Toast.makeText(RegistrationActivity.this, "Enter Password", Toast.LENGTH_SHORT).show();
-                return;
-            }else if (Password.length()<6){
-                Toast.makeText(RegistrationActivity.this,"Password must be greater then 6 digit",Toast.LENGTH_SHORT).show();
-                return;
-            }else if (TextUtils.isEmpty(Phone)){
-                Toast.makeText(RegistrationActivity.this,"Enter Phonenumber",Toast.LENGTH_SHORT).show();
-                return;
-            }
-
+//            Name = name.getText().toString().trim();
+//            Email = email.getText().toString().trim();
+//            Password = password.getText().toString().trim();
+//            Phone=  phone.getText().toString().trim();
+//            if (TextUtils.isEmpty(Name)){
+//                Toast.makeText(RegistrationActivity.this, "Enter Name", Toast.LENGTH_SHORT).show();
+//                name.requestFocus();
+//
+//                return;
+//            }else if (TextUtils.isEmpty(Email)){
+//                Toast.makeText(RegistrationActivity.this, "Enter Email", Toast.LENGTH_SHORT).show();
+//                email.requestFocus();
+//                return;
+//            }else if (TextUtils.isEmpty(Password)){
+//                Toast.makeText(RegistrationActivity.this, "Enter Password", Toast.LENGTH_SHORT).show();
+//                password.requestFocus();
+//                return;
+//            }else if (Password.length()<6){
+//                Toast.makeText(RegistrationActivity.this,"Password must be greater then 6 digit",Toast.LENGTH_SHORT).show();
+//                password.requestFocus();
+//                return;
+//            }else if (TextUtils.isEmpty(Phone)){
+//                Toast.makeText(RegistrationActivity.this,"Enter Phonenumber",Toast.LENGTH_SHORT).show();
+//                phone.requestFocus();
+//                return;
+//            }
+//              else if (!Patterns.EMAIL_ADDRESS.matcher(Email).matches() ){
+//                Toast.makeText(RegistrationActivity.this, "Enter a valid email", Toast.LENGTH_SHORT).show();
+//                email.requestFocus();
+//                return;
+//
+//            }
         }
 
         /**
@@ -127,7 +165,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 if (success == 1) {
                     // successfully created product
-                    Intent i = new Intent(getApplicationContext(), RegistrationActivity.class);
+                    Intent i = new Intent(getApplicationContext(), SigninActivity.class);
                     startActivity(i);
 
                     // closing this screen

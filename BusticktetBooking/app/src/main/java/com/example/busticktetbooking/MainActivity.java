@@ -1,5 +1,4 @@
 package com.example.busticktetbooking;
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -69,19 +68,18 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-        if (id == R.id.nav_reservation) {
-            startActivity(new Intent(MainActivity.this,BusSearchingActivity.class));
-        } else if (id == R.id.nav_cancel) {
-            startActivity(new Intent(MainActivity.this,SigninActivity.class));
-        } else if (id == R.id.nav_payment) {
-
-        } else if (id == R.id.nav_faq) {
-
-        } else if (id == R.id.nav_report) {
-
+        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
+            if (id == R.id.nav_reservation) {
+                startActivity(new Intent(MainActivity.this, BusSearchingActivity.class));
+            } else if (id == R.id.nav_my_reservation) {
+                startActivity(new Intent(MainActivity.this, SigninActivity.class));
+            } else if (id == R.id.nav_profile) {
+                startActivity(new Intent(MainActivity.this, Profile.class));
+            }else if (id == R.id.nav_logout) {
+                finish();
+                SharedPrefManager.getInstance(getApplicationContext()).logout();
+            }
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

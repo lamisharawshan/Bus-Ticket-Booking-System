@@ -23,16 +23,17 @@
         android:hint="df"/>
 
     <EditText
+        android:id="@+id/editEmail"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:textColor="#000"
-        android:ems="10"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/editEmail"
-        android:gravity="center"/>
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter Email"
+        android:inputType="textEmailAddress"
+        android:textColor="#000" />
 
     <EditText
         android:layout_width="fill_parent"

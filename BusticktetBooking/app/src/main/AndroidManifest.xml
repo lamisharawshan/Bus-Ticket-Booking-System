@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PaymentActivity"></activity>
+        <activity android:name=".Profile"></activity>
+        <activity android:name=".PaymentActivity" />
         <activity android:name=".BookingRouteActivity" />
         <activity android:name=".ShowSuggestedBuses" />
         <activity android:name=".BusSearchingActivity" />
@@ -30,14 +31,11 @@
         <activity
             android:name=".MainActivity"
             android:label="Bus Ticket Booking App"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".SigninActivity"
             android:label="Bus Ticket Booking App"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
