@@ -16,6 +16,7 @@ public class BookingRouteActivity extends AppCompatActivity {
 String Source,Destination,Day,route_ID, arrivaltime,departuretime,available_seat,rent,name,price, selectedItemText;
     TextView form, to, day, rent_text, name_text, arrival_time_text,seat_available,route_id, cost;
     Button payment;
+    User user; int id;
     AutoCompleteTextView editText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,6 @@ String Source,Destination,Day,route_ID, arrivaltime,departuretime,available_seat
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, personNumber);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(adapter);
-
         payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,6 +71,7 @@ String Source,Destination,Day,route_ID, arrivaltime,departuretime,available_seat
                 i.putExtra("rent", rent);
                 i.putExtra("name", name);
                 i.putExtra("ticket_number",selectedItemText);
+
                 startActivity(i);
                 // creating new product in background thread
             }

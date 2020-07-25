@@ -8,14 +8,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="60"
         android:orientation="vertical">
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/Llayout"
+            android:layout_width="258dp"
             android:layout_height="wrap_content"
-            android:layout_weight="60"
             android:orientation="horizontal">
 
             <TextView
@@ -33,7 +35,9 @@
                 android:fontFamily="sans-serif"
                 android:textColor="#000000"
                 android:textStyle="bold" />
+
         </LinearLayout>
+
         <TextView
             android:id="@+id/route_id"
             android:layout_width="match_parent"
@@ -54,13 +58,25 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/book"
+
+            android:id="@+id/Source"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
             android:fontFamily="sans-serif"
-            android:text="Book Seat"
-            android:textColor="#f5a622"
-            android:textSize="18sp" />
+            android:textColor="#4b4b4b"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="sans-serif"
+            android:textColor="#4b4b4b"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -106,15 +122,15 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             android:fontFamily="sans-serif"
-            android:text="Available seat"
+            android:text="Number of ticket"
             android:textAlignment="textEnd"
             android:textColor="#f5a622"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
 
         <TextView
-            android:id="@+id/seat_available"
+            android:id="@+id/TicketNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -122,5 +138,16 @@
             android:fontFamily="sans-serif"
             android:textAlignment="textEnd"
             android:textColor="#b3b3b3" />
+
+        <TextView
+
+            android:id="@+id/Destination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="sans-serif"
+            android:textColor="#4b4b4b"
+            android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

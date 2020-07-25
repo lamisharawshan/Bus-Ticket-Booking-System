@@ -147,8 +147,9 @@ public class ShowSuggestedBuses extends ListActivity {
                         map.put("rent",rent );
                         map.put("arrival",arrivaltime );
                         map.put("departure",departuretime );
+                        map.put("available_seat",available_seat );
                         map.put("id",id );
-                       
+
                         // adding HashList to ArrayList
                         busList.add(map);
                         // closing this screen

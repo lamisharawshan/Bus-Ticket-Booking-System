@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity
             if (id == R.id.nav_reservation) {
                 startActivity(new Intent(MainActivity.this, BusSearchingActivity.class));
             } else if (id == R.id.nav_my_reservation) {
-                startActivity(new Intent(MainActivity.this, SigninActivity.class));
+                startActivity(new Intent(MainActivity.this, UsersBookingList.class));
             } else if (id == R.id.nav_profile) {
                 startActivity(new Intent(MainActivity.this, Profile.class));
             }else if (id == R.id.nav_logout) {

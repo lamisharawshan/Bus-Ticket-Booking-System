@@ -29,6 +29,7 @@ public class PaymentActivity extends AppCompatActivity {
     Button buy;
     TextView cardnumber,cvc,name,surname,costInt;
     String route_id,price,selectedItemText;
+    int id;
     private ProgressDialog pDialog;
     JSONParser jParser = new JSONParser();
     private static final String TAG_SUCCESS = "success";
@@ -38,6 +39,8 @@ public class PaymentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+        User user = SharedPrefManager.getInstance(this).getUser();
+        id=user.getId();
         buy = findViewById(R.id.PayButton);
         cardnumber = findViewById(R.id.PaymentCardNumber);
         cvc= findViewById(R.id.PaymentCVC);
@@ -90,6 +93,7 @@ public class PaymentActivity extends AppCompatActivity {
             params.add(new BasicNameValuePair("cvc", cvc.getText().toString()));
             params.add(new BasicNameValuePair("surname", surname.getText().toString()));
             params.add(new BasicNameValuePair("name", name.getText().toString()));
+            params.add(new BasicNameValuePair("user_id", String.valueOf(id)));
 
             // getting JSON Object
             // Note that create product url accepts POST method
