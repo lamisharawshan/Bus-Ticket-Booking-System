@@ -91,16 +91,14 @@ public class SigninActivity extends AppCompatActivity {
 
         protected void onPostExecute(JSONObject result) {
 
-            // dismiss the dialog once product deleted
-            //Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
-
             try {
                 int success = result.getInt("success");
                 if (success == 1) {
                     User user = new User(
                             result.getInt("id"),
                             result.getString("name"),
-                            result.getString("email")
+                            result.getString("email"),
+                            result.getString("phone")
                     );
 
                     //storing the user in shared preferences

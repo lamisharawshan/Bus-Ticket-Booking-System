@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.busticketbookingadminpanel">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Bus Ticket Booking"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".AddingRouteTime"></activity>
+        <activity android:name=".ShowUserList" />
+        <activity android:name=".UsersBookingList" />
+        <activity android:name=".Profile" />
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".BookingRouteActivity" />
+        <activity android:name=".ShowSuggestedBuses" />
+        <activity android:name=".BusSearchingActivity" />
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".add_product" />
+        <activity android:name=".EditProductActivity" />
+        <activity android:name=".list_item" />
+        <activity android:name=".NewProductActivity" />
+        <activity android:name=".AllProductsActivity" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name=".MainActivity"
+            android:label="Bus Ticket Booking App"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SigninActivity"
+            android:label="Bus Ticket Booking App"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

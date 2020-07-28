@@ -34,11 +34,11 @@ String Source,Destination,Day,route_ID, arrivaltime,departuretime,available_seat
         name = i.getStringExtra("name");
         //editText = findViewById(R.id.autoCompleteTextView3);
          form = (TextView) findViewById(R.id.form);
-         to = (TextView) findViewById(R.id.to);
+         to = (TextView) findViewById(R.id.Source);
          day = (TextView) findViewById(R.id.day);
          rent_text = (TextView) findViewById(R.id.rent);
          name_text = (TextView) findViewById(R.id.name);
-         arrival_time_text = (TextView) findViewById(R.id.arrival_time);
+         arrival_time_text = (TextView) findViewById(R.id.Source);
          seat_available = (TextView) findViewById(R.id.seat_available);
          route_id = (TextView) findViewById(R.id.route_id);
          cost = (TextView) findViewById(R.id.totalcost);

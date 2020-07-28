@@ -12,25 +12,24 @@
 
     <RelativeLayout
 
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
+        android:background="@android:color/darker_gray"
         android:orientation="vertical"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="62dp"
             android:background="@android:color/darker_gray"
             android:padding="20dp"
-            android:text="Welcome to Online Bus Ticket Booking App"
+            android:text="Welcome to bus ticket booking application"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="20dp"
@@ -42,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="119dp"
             android:src="@drawable/busmain" />
 
 

@@ -43,7 +43,7 @@ public class ShowSuggestedBuses extends ListActivity {
         Destination = i.getStringExtra("Destination");
         Day = i.getStringExtra("Date");
         TextView form = (TextView) findViewById(R.id.form);
-        TextView to = (TextView) findViewById(R.id.to);
+        TextView to = (TextView) findViewById(R.id.Source);
         TextView day = (TextView) findViewById(R.id.day);
         form.setText(Source);
         to.setText(Destination);
@@ -181,7 +181,7 @@ public class ShowSuggestedBuses extends ListActivity {
                         ListAdapter adapter = new SimpleAdapter(
                                 ShowSuggestedBuses.this, busList, R.layout.activity_list_buses
                                 , new String[]{"rent", "name", "arrival", "available_seat","id", "departure"},
-                                new int[]{R.id.rent, R.id.name, R.id.arrival_time, R.id.seat_available,R.id.route_id, R.id.departure_time});
+                                new int[]{R.id.rent, R.id.name, R.id.Source, R.id.seat_available,R.id.route_id, R.id.Destination});
 
                         // updating listview
                         setListAdapter(adapter);

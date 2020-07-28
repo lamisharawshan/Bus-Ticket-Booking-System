@@ -1,7 +1,5 @@
 package com.example.busticktetbooking;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -18,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import android.app.ListActivity;
+import android.app.ActionBar;
 
 public class UsersBookingList extends ListActivity {
     int id;
@@ -35,7 +34,9 @@ public class UsersBookingList extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_users_booking_list);
+        setTitle("Bus searching activity");
         busList = new ArrayList<HashMap<String, String>>();
         new showBookedBuses().execute();
         User user = SharedPrefManager.getInstance(this).getUser();
@@ -125,7 +126,7 @@ public class UsersBookingList extends ListActivity {
                         ListAdapter adapter = new SimpleAdapter(
                                 UsersBookingList.this, busList, R.layout.activity_list_booking
                                 , new String[]{"rent", "PSN", "arrival", "departure","PDN", "ticket_number", "route_date"},
-                                new int[]{R.id.rent, R.id.Source, R.id.arrival_time, R.id.departure_time,R.id.Destination, R.id.TicketNumber,R.id.Day});
+                                new int[]{R.id.rent, R.id.Source, R.id.Timearrival, R.id.Destination,R.id.Departure_time, R.id.TicketNumber,R.id.Day});
 
                         // updating listview
                         setListAdapter(adapter);

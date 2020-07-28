@@ -72,7 +72,7 @@
                             android:layout_weight="10"/>
 
                         <TextView
-                            android:id="@+id/to"
+                            android:id="@+id/Source"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:fontFamily="sans-serif"

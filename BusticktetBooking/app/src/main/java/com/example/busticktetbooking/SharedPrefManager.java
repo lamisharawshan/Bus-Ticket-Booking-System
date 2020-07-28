@@ -10,7 +10,7 @@ public class SharedPrefManager {
     private static final String SHARED_PREF_NAME = "simplifiedcodingsharedpref";
     private static final String KEY_USERNAME = "keyusername";
     private static final String KEY_EMAIL = "keyemail";
-    private static final String KEY_GENDER = "keygender";
+    private static final String KEY_Phone = "keyphone";
     private static final String KEY_ID = "keyid";
 
     private static SharedPrefManager mInstance;
@@ -35,6 +35,7 @@ public class SharedPrefManager {
         editor.putInt(KEY_ID, user.getId());
         editor.putString(KEY_USERNAME, user.getUsername());
         editor.putString(KEY_EMAIL, user.getEmail());
+        editor.putString(KEY_Phone, user.getPhone());
         editor.apply();
     }
 
@@ -50,7 +51,8 @@ public class SharedPrefManager {
         return new User(
                 sharedPreferences.getInt(KEY_ID, -1),
                 sharedPreferences.getString(KEY_USERNAME, null),
-                sharedPreferences.getString(KEY_EMAIL, null)
+                sharedPreferences.getString(KEY_EMAIL, null),
+                sharedPreferences.getString(KEY_Phone, null)
         );
     }
 

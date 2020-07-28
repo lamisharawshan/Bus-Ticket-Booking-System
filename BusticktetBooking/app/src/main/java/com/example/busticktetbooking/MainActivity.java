@@ -75,6 +75,8 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(MainActivity.this, UsersBookingList.class));
             } else if (id == R.id.nav_profile) {
                 startActivity(new Intent(MainActivity.this, Profile.class));
+            }else if (id == R.id.nav_view) {
+                startActivity(new Intent(MainActivity.this, Notification.class));
             }else if (id == R.id.nav_logout) {
                 finish();
                 SharedPrefManager.getInstance(getApplicationContext()).logout();

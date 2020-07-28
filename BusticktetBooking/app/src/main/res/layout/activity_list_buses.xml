@@ -19,7 +19,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/arrival_time"
+                android:id="@+id/Source"
                 android:layout_width="124dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
@@ -27,7 +27,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/departure_time"
+                android:id="@+id/Destination"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"

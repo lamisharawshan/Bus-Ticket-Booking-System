@@ -72,7 +72,7 @@
                             android:layout_weight="10"/>
 
                         <TextView
-                            android:id="@+id/to"
+                            android:id="@+id/Source"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:fontFamily="sans-serif"
@@ -109,7 +109,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/arrival_time"
+                            android:id="@id/Source"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif"

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddingRouteTime">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Name Label -->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:paddingTop="10dip"
+            android:paddingRight="10dip"
+            android:text="Arrival Time"
+            android:textSize="17dip" />
+
+        <!-- Input Name -->
+        <EditText
+            android:id="@+id/ArrivalTime"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:layout_marginBottom="15dip"
+            android:singleLine="true" />
+
+        <!-- Price Label -->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:paddingTop="10dip"
+            android:paddingRight="10dip"
+            android:text="Departure Time"
+            android:textSize="17dip" />
+
+        <!-- Input Price -->
+        <EditText
+            android:id="@+id/inputPrice"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:layout_marginBottom="15dip"
+            android:inputType="numberDecimal"
+            android:singleLine="true" />
+
+        <!-- Description Label -->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:paddingTop="10dip"
+            android:paddingRight="10dip"
+            android:text="Rent"
+            android:textSize="17dip" />
+
+        <!-- Input description -->
+        <EditText
+            android:id="@+id/Rent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:layout_marginBottom="15dip"
+            android:inputType="numberDecimal"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/bus"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:paddingTop="10dip"
+            android:paddingRight="10dip"
+            android:text="Select Bus"
+            android:textSize="17dip" />
+
+
+        <AutoCompleteTextView
+            android:id="@+id/actv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:completionHint="Select Bus"
+            android:completionThreshold="0"
+            android:dropDownAnchor="@id/bus"
+            android:hint="Select Bus"
+            android:popupBackground="#03a9f4"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textroute"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:paddingTop="10dip"
+            android:paddingRight="10dip"
+            android:text="Select Route"
+            android:textSize="17dip" />
+        <AutoCompleteTextView
+            android:id="@+id/actv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:completionHint="Select Location"
+            android:completionThreshold="0"
+            android:dropDownAnchor="@id/textroute"
+            android:hint="Select Route"
+            android:popupBackground="#03a9f4"
+            android:textSize="18sp" />
+
+<!--        <Spinner-->
+<!--            android:id="@+id/spinner2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignBottom="@+id/textroute"-->
+<!--            android:layout_toRightOf="@+id/textroute"-->
+<!--          />-->
+
+        <Button
+            android:id="@+id/pick_button"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Date" />
+
+        <EditText
+            android:id="@+id/set_picked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="DD/MM/YYYY"
+            android:text="" />
+
+
+        <!-- Button Create Product -->
+        <Button
+            android:id="@+id/btnCreateProduct"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Product" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

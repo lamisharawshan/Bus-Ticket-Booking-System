@@ -2,12 +2,13 @@ package com.example.busticktetbooking;
 
 public class User {
     private int id;
-    private String username, email;
+    private String username, email, phone;
 
-    public User(int id, String username, String email) {
+    public User(int id, String username, String email, String phone) {
         this.id = id;
         this.username = username;
         this.email = email;
+        this.phone=phone;
 
     }
 
@@ -23,5 +24,8 @@ public class User {
         return email;
     }
 
+    public String getPhone() {
+        return phone;
+    }
 
 }
