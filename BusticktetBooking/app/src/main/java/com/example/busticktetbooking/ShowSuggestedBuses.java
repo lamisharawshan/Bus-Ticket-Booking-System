@@ -146,9 +146,11 @@ public class ShowSuggestedBuses extends ListActivity {
                         map.put("name", name);
                         map.put("rent",rent );
                         map.put("arrival",arrivaltime );
-                        map.put("departure",departuretime );
+                        map.put("departure",destintaion );
                         map.put("available_seat",available_seat );
                         map.put("id",id );
+                        map.put("departuretime",departuretime);
+                        map.put("arrivaltime",arrivaltime);
 
                         // adding HashList to ArrayList
                         busList.add(map);
@@ -180,8 +182,8 @@ public class ShowSuggestedBuses extends ListActivity {
                     try {
                         ListAdapter adapter = new SimpleAdapter(
                                 ShowSuggestedBuses.this, busList, R.layout.activity_list_buses
-                                , new String[]{"rent", "name", "arrival", "available_seat","id", "departure"},
-                                new int[]{R.id.rent, R.id.name, R.id.Source, R.id.seat_available,R.id.route_id, R.id.Destination});
+                                , new String[]{"rent", "name", "arrival", "available_seat","id", "departure","departuretime", "arrivaltime"},
+                                new int[]{R.id.rent, R.id.name, R.id.Source, R.id.seat_available,R.id.route_id, R.id.Destination, R.id.departure_time, R.id.arrival_time});
 
                         // updating listview
                         setListAdapter(adapter);

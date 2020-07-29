@@ -122,7 +122,8 @@ public class PaymentActivity extends AppCompatActivity {
             // dismiss the dialog once done
             pDialog.dismiss();
             Toast.makeText(getApplicationContext(),"Payment Succesfull!",Toast.LENGTH_LONG).show();
-            finish();
+            startActivity(new Intent(PaymentActivity.this,MainActivity.class));
+            //finish();
 
         }
 

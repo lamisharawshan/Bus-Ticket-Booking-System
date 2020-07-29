@@ -105,38 +105,6 @@ public class RegistrationActivity extends AppCompatActivity {
             pDialog.setCancelable(true);
             pDialog.show();
 
-//            Name = name.getText().toString().trim();
-//            Email = email.getText().toString().trim();
-//            Password = password.getText().toString().trim();
-//            Phone=  phone.getText().toString().trim();
-//            if (TextUtils.isEmpty(Name)){
-//                Toast.makeText(RegistrationActivity.this, "Enter Name", Toast.LENGTH_SHORT).show();
-//                name.requestFocus();
-//
-//                return;
-//            }else if (TextUtils.isEmpty(Email)){
-//                Toast.makeText(RegistrationActivity.this, "Enter Email", Toast.LENGTH_SHORT).show();
-//                email.requestFocus();
-//                return;
-//            }else if (TextUtils.isEmpty(Password)){
-//                Toast.makeText(RegistrationActivity.this, "Enter Password", Toast.LENGTH_SHORT).show();
-//                password.requestFocus();
-//                return;
-//            }else if (Password.length()<6){
-//                Toast.makeText(RegistrationActivity.this,"Password must be greater then 6 digit",Toast.LENGTH_SHORT).show();
-//                password.requestFocus();
-//                return;
-//            }else if (TextUtils.isEmpty(Phone)){
-//                Toast.makeText(RegistrationActivity.this,"Enter Phonenumber",Toast.LENGTH_SHORT).show();
-//                phone.requestFocus();
-//                return;
-//            }
-//              else if (!Patterns.EMAIL_ADDRESS.matcher(Email).matches() ){
-//                Toast.makeText(RegistrationActivity.this, "Enter a valid email", Toast.LENGTH_SHORT).show();
-//                email.requestFocus();
-//                return;
-//
-//            }
         }
 
         /**

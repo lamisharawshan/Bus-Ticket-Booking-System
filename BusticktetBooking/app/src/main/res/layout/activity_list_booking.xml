@@ -153,22 +153,22 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/rent"
+
                 android:layout_width="84dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:textAlignment="textEnd"
+                android:text="€"
                 android:textColor="#C81E11"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
 
-                android:id="@+id/currency"
+                android:id="@+id/rent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="€"
                 android:textAlignment="textStart"
                 android:textColor="#C81E11"
                 android:textSize="24sp"

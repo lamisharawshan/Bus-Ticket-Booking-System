@@ -22,7 +22,7 @@
 
                 android:id="@+id/align"
                 android:layout_width="124dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:fontFamily="sans-serif"
                 android:text="Departure Time"
                 android:textAlignment="center"
@@ -124,22 +124,20 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/rent"
                 android:layout_width="84dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:textAlignment="textEnd"
+                android:text="€"
                 android:textColor="#E91E63"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
-
-                android:id="@+id/ID"
+                android:id="@+id/rent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="€"
                 android:textAlignment="textStart"
                 android:textColor="#E91E63"
                 android:textSize="24sp"
