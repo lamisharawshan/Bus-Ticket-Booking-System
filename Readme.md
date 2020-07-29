@@ -17,8 +17,8 @@ Install [WAMP Server](http://www.wampserver.com/en/) or [XAMPP Server](https://w
 
 # Use Case Diagram
 	
-![Use Case diagram of Bus Ticket Booking App](UML Diagrams/Usecase Diagram.png)
+![Use Case diagram of Bus Ticket Booking App](UML_Diagrams/UsecaseDiagram.png)
 
 # Database Schema
 
-![Database Schema of Bus Ticket Booking App](UML Diagrams/databaseSchema.png)
+![Database Schema of Bus Ticket Booking App](UML_Diagrams/DatabaseSchema.png)
