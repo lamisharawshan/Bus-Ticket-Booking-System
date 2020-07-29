@@ -9,26 +9,19 @@
                 android:icon="@drawable/ic_contact_mail_black_24dp"
                 android:title="Profile" />
             <item
-                android:id="@+id/nav_add_places"
-                android:icon="@drawable/ic_payment_black_24dp"
-                android:title="Add Places" />
+                android:id="@+id/nav_show_user"
+                android:icon="@drawable/ic_directions_bus_black_24dp"
+                android:title="Show User " />
 
             <item
                 android:id="@+id/nav_add_new_route"
                 android:icon="@drawable/ic_directions_bus_black_24dp"
                 android:title="Add New Route" />
             <item
-                android:id="@+id/nav_add_new_routetime"
+                android:id="@+id/nav_bus_searching"
                 android:icon="@drawable/ic_directions_bus_black_24dp"
-                android:title="Add New Route Time" />
-            <item
-                android:id="@+id/nav_edit_new_routetime"
-                android:icon="@drawable/ic_directions_bus_black_24dp"
-                android:title="Edit Route Time" />
-            <item
-                android:id="@+id/nav_show_user"
-                android:icon="@drawable/ic_directions_bus_black_24dp"
-                android:title="Show User " />
+                android:title="Search Bus" />
+
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_cancel_black_24dp"

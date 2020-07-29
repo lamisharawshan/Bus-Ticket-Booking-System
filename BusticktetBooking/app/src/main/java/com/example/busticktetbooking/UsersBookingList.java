@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import android.app.ListActivity;
 import android.app.ActionBar;
+import android.widget.Toast;
 
 public class UsersBookingList extends ListActivity {
     int id;
@@ -102,7 +103,7 @@ public class UsersBookingList extends ListActivity {
                     }
                 }else{
                     // failed to create product
-                }
+                                  }
 
             } catch (JSONException e) {
                 e.printStackTrace();

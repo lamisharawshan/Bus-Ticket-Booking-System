@@ -64,9 +64,6 @@ public class ShowSuggestedBuses extends ListActivity {
                                     int position, long id) {
                 // getting values from selected ListItem
                 String rent = ((TextView) view.findViewById(R.id.rent)).getText().toString();
-             // String source = ((TextView) view.findViewById(R.id.form)).getText().toString();
-              // String Destination = ((TextView) view.findViewById(R.id.to)).getText().toString();
-              // String Day = ((TextView) view.findViewById(R.id.day)).getText().toString();
                 String routeid = ((TextView) view.findViewById(R.id.route_id)).getText().toString();
 
                 // Starting new intent
@@ -82,9 +79,7 @@ public class ShowSuggestedBuses extends ListActivity {
                 in.putExtra("Day", Day);
                 in.putExtra("rent", rent);
                 in.putExtra("name", name);
-                // starting new activity and expecting some response back
-                //startActivityForResult(in, 100);
-                startActivity(in);
+               // startActivity(in);
             }
         });
 

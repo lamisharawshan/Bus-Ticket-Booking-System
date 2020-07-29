@@ -19,10 +19,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/arrival_time"
+
+                android:id="@+id/align"
                 android:layout_width="124dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
+                android:text="Departure Time"
+                android:textAlignment="center"
                 android:textColor="#000000"
                 android:textStyle="bold" />
 
@@ -31,9 +34,62 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
+                android:textAlignment="center"
                 android:textColor="#000000"
                 android:textStyle="bold" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="60"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Arrival Time"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/arrival_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="60"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Bus Name"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
         <TextView
             android:id="@+id/route_id"
             android:layout_width="match_parent"
@@ -44,21 +100,12 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="sans-serif"
-            android:textColor="#4b4b4b"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/book"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:text="Book Seat"
+            android:textAlignment="center"
             android:textColor="#f5a622"
             android:textSize="18sp" />
 
@@ -82,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:textAlignment="textEnd"
-                android:textColor="#f5a622"
+                android:textColor="#E91E63"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -92,35 +139,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="euro"
-                android:textAlignment="textEnd"
-                android:textColor="#f5a622"
+                android:text="€"
+                android:textAlignment="textStart"
+                android:textColor="#E91E63"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <TextView
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="sans-serif"
-            android:text="Available seat"
-            android:textAlignment="textEnd"
-            android:textColor="#f5a622"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-
-
-        <TextView
-            android:id="@+id/seat_available"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="sans-serif"
-            android:textAlignment="textEnd"
-            android:textColor="#b3b3b3" />
     </LinearLayout>
 </LinearLayout>

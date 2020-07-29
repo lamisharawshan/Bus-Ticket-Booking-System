@@ -26,6 +26,7 @@ public class EditProfile extends AppCompatActivity {
     int userid;
     Button btnSave;
     TextView textViewId, textViewUsername, textViewEmail, textViewGender;
+    String name, email, phone;
     private ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
     private static final String url_update_user = "http://192.168.0.104/BusBooking/update_users_details.php";
@@ -92,9 +93,9 @@ public class EditProfile extends AppCompatActivity {
         protected String doInBackground(String... args) {
 
             // getting updated data from EditTexts
-            String name = textViewUsername.getText().toString();
-            String email = textViewEmail.getText().toString();
-            String phone = textViewId.getText().toString();
+             name = textViewUsername.getText().toString();
+             email = textViewEmail.getText().toString();
+             phone = textViewId.getText().toString();
 
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -114,6 +115,17 @@ public class EditProfile extends AppCompatActivity {
 
                 if (success == 1) {
                     // successfully updated
+                    User user = new User(
+                            userid,
+                            name,
+                            email,
+                            phone
+                    );
+
+                    //storing the user in shared preferences
+                    SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+
+
                     Intent i = getIntent();
                     // send result code 100 to notify about product update
                     setResult(100, i);
@@ -134,6 +146,7 @@ public class EditProfile extends AppCompatActivity {
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product uupdated
             pDialog.dismiss();
+            startActivity(new Intent(getApplicationContext(), Profile.class));
         }
     }
 

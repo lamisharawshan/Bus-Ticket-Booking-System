@@ -5,6 +5,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ShowUserList"
     android:orientation="vertical">
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="#03A9F4"
+        android:fontFamily="sans-serif"
+        android:text="User List"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@android:id/list"
