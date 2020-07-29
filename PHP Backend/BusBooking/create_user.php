@@ -20,15 +20,15 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 
     // connecting to db
     $db = new DB_CONNECT();
-
+      $userType="user";
     // mysql inserting a new row
-    $result = mysqli_query($db->connect(),"INSERT INTO users(name, email, password, phone) VALUES('$name', '$email', '$password', '$phone')");
+    $result = mysqli_query($db->connect(),"INSERT INTO users(name, email, password, phone, usertype) VALUES('$name', '$email', '$password', '$phone', '$userType')");
 
     // check if row inserted or not
     if ($result) {
         // successfully inserted into database
         $response["success"] = 1;
-        $response["message"] = "bus successfully created.";
+        $response["message"] = "user successfully created.";
 
         // echoing JSON response
         echo json_encode($response);

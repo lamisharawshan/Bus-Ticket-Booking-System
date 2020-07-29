@@ -19,7 +19,7 @@ if (isset($_POST['id'])){
 
 // connecting to db
     $db = new DB_CONNECT();
-   $result = mysqli_query($db->connect(),"SELECT arrival_time,departure_time,rent,route_date,available_seat,bookingID ,cost,ticket_number, route.source as SID, route.destination as DID, (Select places.placename from places where places.placeID=SID) as PSN, (Select places.placename from places where places.placeID=DID) as PDN  FROM `booking`, `route_time`,`route` WHERE  booking.userid=$id and booking.route_id=route_time.route_time_id and  route.rid=route_time.rid");
+   $result = mysqli_query($db->connect(),"SELECT arrival_time,departure_time,rent,route_date,available_seat,bookingID ,cost,ticket_number, route.source as SID, route.destination as DID, (Select places.placename from places where places.placeID=SID) as PSN, (Select places.placename from places where places.placeID=DID) as PDN  FROM `booking`, `route_time`,`route` WHERE  booking.userid=$id and booking.route_id=route_time.route_time_id and  route.rid=route_time.rid ORDER BY booking.bookingID DESC");
 
     if (!empty($result)) {
 

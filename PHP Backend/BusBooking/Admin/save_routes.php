@@ -30,10 +30,10 @@ if (isset($_POST['arrivalTime']) && isset($_POST['departureTime']) && isset($_PO
     // check if row inserted or not
     if ($result) {
         // successfully inserted into database
-        $result = mysqli_query($db->connect(),"SELECT placename from places, route where  route.rid=1 and placeID=source");
+        $result = mysqli_query($db->connect(),"SELECT placename from places, route where  route.rid='$routeID' and placeID=source");
         $result = mysqli_fetch_array($result);
         $source=$result[placename];
-        $result = mysqli_query($db->connect(),"SELECT placename from places, route where  route.rid=1 and placeID=route.destination");
+        $result = mysqli_query($db->connect(),"SELECT placename from places, route where  route.rid='$routeID' and placeID=route.destination");
         $result = mysqli_fetch_array($result);
         $destination=$result[placename];
         $result = mysqli_query($db->connect(),"INSERT INTO notification(Source, Destination) VALUES('$source', '$destination')");
